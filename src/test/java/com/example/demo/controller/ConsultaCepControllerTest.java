@@ -24,6 +24,7 @@ class ConsultaCepControllerTest{
     void consultaCep() {
         String cep = "01001000";
         RestTemplate restTemplateMock = new RestTemplate();
+
         ResponseEntity<CepRecordDTO> response = restTemplateMock.getForEntity("http://viacep.com.br/ws/"+cep+"/json/", CepRecordDTO.class);
 
         assertEquals("01001-000", response.getBody().cep());
